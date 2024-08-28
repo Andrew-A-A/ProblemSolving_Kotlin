@@ -2,6 +2,8 @@ fun main() {
     val s=Solution()
 
 
-    println(s.gcdOfStrings("axac","acacac"))
+    val flowers= intArrayOf(0,0,0)
+    val n=1
+    println( s.canPlaceFlowers(flowers,n))
 }
 
