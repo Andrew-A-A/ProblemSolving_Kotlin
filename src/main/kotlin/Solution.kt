@@ -224,4 +224,18 @@ class Solution {
     private fun gcd(a: Int, b: Int): Int {
     return if (b==0) a else gcd(b,a%b)
     }
+
+    fun kidsWithCandies(candies: IntArray, extraCandies: Int): List<Boolean> {
+        val list: ArrayList<Boolean> = ArrayList<Boolean>()
+        val max=candies.max()
+        for(candy in candies){
+            if (candy+extraCandies>=max){
+                candy+extraCandies
+                list.add(true)
+            }else{
+                list.add(false)
+            }
+        }
+        return list
+    }
 }
