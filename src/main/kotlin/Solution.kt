@@ -261,8 +261,11 @@ class Solution {
                 count--
                 flowerbed[current] = 1
             }
-
         }
         return count == 0
+    }
+    fun reverseWords(s: String): String {
+     val list=s.split(" ", ignoreCase = true).filter { s: String -> s.isNotEmpty() }
+    return list.reversed().toString().removeSurrounding("[","]").replace(",","").trim()
     }
 }
