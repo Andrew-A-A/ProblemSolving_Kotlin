@@ -268,4 +268,14 @@ class Solution {
      val list=s.split(" ", ignoreCase = true).filter { s: String -> s.isNotEmpty() }
     return list.reversed().toString().removeSurrounding("[","]").replace(",","").trim()
     }
+    fun largestAltitude(gain: IntArray): Int {
+        var current=0
+        var max=current
+        for (num in gain){
+            current+=num
+            if (current>max)
+                max=current
+        }
+        return max
+    }
 }
