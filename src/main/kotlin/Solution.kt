@@ -1,3 +1,4 @@
+import java.nio.CharBuffer
 import java.util.*
 
 class Solution {
@@ -277,5 +278,15 @@ class Solution {
                 max=current
         }
         return max
+    }
+    fun removeStars(s: String): String {
+    val x=Stack<Char>()
+    for (char in s){
+        if (char== '*')
+              x.pop()
+        else
+            x.push(char)
+    }
+    return x.toString().removeSurrounding("[","]").replace(", ","")
     }
 }

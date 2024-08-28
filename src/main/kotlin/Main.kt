@@ -3,6 +3,6 @@ fun main() {
 
     val intArray= intArrayOf(-5,1,5,0,-7)
 
-    println( s.largestAltitude(intArray))
+    println( s.removeStars("leet**cod*e"))
 }
 
