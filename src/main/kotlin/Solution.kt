@@ -213,7 +213,15 @@ class Solution {
         s2=s2.substring(1,s2.length-2)
         return s2.contains(s)
     }
-//    fun tictactoe(moves: Array<IntArray>): String {
-//
-//    }
+
+    fun gcdOfStrings(str1: String, str2: String): String {
+      if ((str1+str2)!=(str2+str1)){
+          return ""
+      }
+        return str1.substring(0,gcd(str1.length,str2.length))
     }
+
+    private fun gcd(a: Int, b: Int): Int {
+    return if (b==0) a else gcd(b,a%b)
+    }
+}

@@ -1,6 +1,7 @@
 fun main() {
     val s=Solution()
 
-    println(s.repeatedSubstringPattern("bb"))
+
+    println(s.gcdOfStrings("axac","acacac"))
 }
 
