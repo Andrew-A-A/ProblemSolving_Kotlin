@@ -1,4 +1,3 @@
-import java.nio.CharBuffer
 import java.util.*
 import kotlin.math.min
 
@@ -337,5 +336,47 @@ class Solution {
             }
         }
         return sb.toString()
+    }
+    fun productExceptSelf(nums: IntArray): IntArray {
+        //Get the product of the whole array
+        var arrayProduct=1
+        var zeroCont=0
+
+            nums.forEach { num: Int ->
+                if (num!=0) {
+                    arrayProduct *= num
+                }
+                else{
+                    zeroCont++
+                }
+        }
+        if (zeroCont>=2){
+            arrayProduct=0
+        }
+
+        val ansArray = IntArray(nums.size)
+
+        if (zeroCont>0){
+            for (i in nums.indices){
+            if (nums[i]==0){
+                ansArray[i]=arrayProduct
+             }
+            else{
+                ansArray[i]=0
+                }
+            }
+        }
+        else{
+            for (i in nums.indices){
+                if (nums[i]==0){
+                    ansArray[i]=arrayProduct
+                }
+                else{
+                ansArray[i]=arrayProduct/nums[i]
+                }
+            }
+        }
+
+        return ansArray
     }
 }

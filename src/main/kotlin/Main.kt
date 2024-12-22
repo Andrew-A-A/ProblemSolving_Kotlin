@@ -1,8 +1,8 @@
 fun main() {
     val s=Solution()
 
-    val solution= s.reverseVowels("leetcode");
+    val solution= s.productExceptSelf(intArrayOf(1,2,3,4));
 
-    println( solution);
+    println( solution.toString());
 }
 
