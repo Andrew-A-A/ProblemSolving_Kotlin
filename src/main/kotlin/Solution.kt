@@ -254,39 +254,56 @@ class Solution {
         var count = n
         val size = flowerbed.size
         for (current in flowerbed.indices) {
-            if (count==0) break
-            val previous=if(current-1<0) 0 else current-1
-            val next=if(current+1>=size) size-1 else current+1
+            if (count == 0) break
+            val previous = if (current - 1 < 0) 0 else current - 1
+            val next = if (current + 1 >= size) size - 1 else current + 1
             if (flowerbed[current] == 0 && flowerbed[previous] == 0
-                && flowerbed[next] == 0) {
+                && flowerbed[next] == 0
+            ) {
                 count--
                 flowerbed[current] = 1
             }
         }
         return count == 0
     }
+
     fun reverseWords(s: String): String {
-     val list=s.split(" ", ignoreCase = true).filter { s: String -> s.isNotEmpty() }
-    return list.reversed().toString().removeSurrounding("[","]").replace(",","").trim()
+        val list = s.split(" ", ignoreCase = true).filter { s: String -> s.isNotEmpty() }
+        return list.reversed().toString().removeSurrounding("[", "]").replace(",", "").trim()
     }
+
     fun largestAltitude(gain: IntArray): Int {
-        var current=0
-        var max=current
-        for (num in gain){
-            current+=num
-            if (current>max)
-                max=current
+        var current = 0
+        var max = current
+        for (num in gain) {
+            current += num
+            if (current > max)
+                max = current
         }
         return max
     }
+
     fun removeStars(s: String): String {
-    val x=Stack<Char>()
-    for (char in s){
-        if (char== '*')
-              x.pop()
-        else
-            x.push(char)
+        val x = Stack<Char>()
+        for (char in s) {
+            if (char == '*')
+                x.pop()
+            else
+                x.push(char)
+        }
+        return x.toString().removeSurrounding("[", "]").replace(", ", "")
     }
-    return x.toString().removeSurrounding("[","]").replace(", ","")
+
+    fun mergeAlternately(word1: String, word2: String): String {
+        val len = if (word1.length > word2.length) word1.length else word2.length
+        val sb = StringBuilder()
+        for (i in 0..<len) {
+            if (i < word1.length)
+                sb.append(word1[i])
+            if (i < word2.length)
+                sb.append(word2[i])
+        }
+        return sb.toString()
     }
+
 }
