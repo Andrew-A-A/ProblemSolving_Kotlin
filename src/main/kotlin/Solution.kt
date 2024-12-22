@@ -409,4 +409,31 @@ class Solution {
             }
         return false
     }
+    fun leftmostBuildingQueries(heights: IntArray, queries: Array<IntArray>): IntArray {
+        val ans=IntArray(queries.size)
+        for(i in queries.indices){
+            var x=queries[i][0]
+            var y=queries[i][1]
+            if(x>y) {
+                x = y.also { y = x }
+            }
+
+            if (x==y){
+                ans[i]=x
+            }else if(heights[y]>heights[x]){
+                ans[i]=y
+            }else{
+               for (k in y..<heights.size){
+                   if (heights[k]>heights[x]){
+                       ans[i]=k
+                       break
+                   }
+               }
+                if (ans[i]==0){
+                    ans[i]=-1
+                }
+            }
+        }
+    return ans
+    }
 }
