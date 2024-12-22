@@ -379,4 +379,19 @@ class Solution {
 
         return ansArray
     }
+    fun increasingTriplet(nums: IntArray): Boolean {
+        var p1=Int.MAX_VALUE
+        var p2=Int.MAX_VALUE
+        nums.forEach { num: Int ->
+            if (num<=p1){
+                p1=num
+            }else if(num<=p2){
+                p2=num
+            }else{
+                return true
+            }
+        }
+
+        return false
+    }
 }

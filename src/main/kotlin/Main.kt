@@ -1,7 +1,7 @@
 fun main() {
     val s=Solution()
 
-    val solution= s.productExceptSelf(intArrayOf(1,2,3,4));
+    val solution= s.increasingTriplet(intArrayOf(20,100,10,12,5,13));
 
     println( solution.toString());
 }
