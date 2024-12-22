@@ -1,5 +1,6 @@
 import java.nio.CharBuffer
 import java.util.*
+import kotlin.math.min
 
 class Solution {
     fun search(nums: IntArray, target: Int): Int {
@@ -225,12 +226,6 @@ class Solution {
         return s2.contains(s)
     }
 
-    fun gcdOfStrings(str1: String, str2: String): String {
-        if ((str1 + str2) != (str2 + str1)) {
-            return ""
-        }
-        return str1.substring(0, gcd(str1.length, str2.length))
-    }
 
     private fun gcd(a: Int, b: Int): Int {
         return if (b == 0) a else gcd(b, a % b)
@@ -306,4 +301,41 @@ class Solution {
         return sb.toString()
     }
 
+    fun gcdOfStrings(str1: String, str2: String): String {
+        val minLen = min(str1.length, str2.length)
+                if ((str1 + str2) != (str2 + str1)) {
+            return ""
+        }
+        for (i in minLen downTo 1) {
+           if (str1.length % i== 0 && str2.length % i ==0){
+                return str2.substring(0,i)
+            }
+        }
+        return ""
+    }
+    fun reverseVowels(s: String): String {
+        val sb=StringBuilder(s);
+        val vowels= charArrayOf('I','i','a','A','e','E','O','o','u','U')
+        var start=0
+        var end=s.length-1
+        while (start<end){
+            val isStartVowel=vowels.contains(s[start])
+            val isEndVowel=vowels.contains(s[end])
+            if (isStartVowel&&isEndVowel){
+                sb.setCharAt(start,s[end])
+                sb.setCharAt(end,s[start])
+                start++
+                end--
+            }else{
+                if (!isStartVowel){
+                    start++
+                }
+                if (!isEndVowel){
+                    end--
+                }
+
+            }
+        }
+        return sb.toString()
+    }
 }

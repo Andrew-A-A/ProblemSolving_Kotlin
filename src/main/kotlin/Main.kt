@@ -1,7 +1,7 @@
 fun main() {
     val s=Solution()
 
-    val solution= s.mergeAlternately("abcd","pq");
+    val solution= s.reverseVowels("leetcode");
 
     println( solution);
 }
