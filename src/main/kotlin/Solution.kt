@@ -394,4 +394,19 @@ class Solution {
 
         return false
     }
+    fun isSubsequence(s: String, t: String): Boolean {
+    var counter=0
+        if (s.isEmpty()){
+            return true
+        }
+
+        for (i in t.indices){
+            if (t[i]==s[counter]){
+                counter++
+                if (counter==s.length)
+                    return true
+                }
+            }
+        return false
+    }
 }
