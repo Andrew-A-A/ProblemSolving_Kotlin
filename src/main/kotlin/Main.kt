@@ -1,15 +1,22 @@
 fun main() {
     val s=Solution()
+    val root=TreeNode(1)
+    val n1=TreeNode(3)
+    val n2=TreeNode(2)
+    val n3=TreeNode(7)
+    val n4=TreeNode(6)
+    val n5=TreeNode(5)
 
-    val solution= s.leftmostBuildingQueries(intArrayOf(6,4,8,5,2,7),
-        arrayOf(
-            intArrayOf(0,1),
-            intArrayOf(0,3),
-            intArrayOf(2,4),
-            intArrayOf(3,4),
-            intArrayOf(2,2)
-    ))
 
-    println( solution.contentToString());
+
+    root.left=n1
+    root.right=n2
+    n1.left=n3
+    n1.right=n4
+    n2.right=n5
+
+    val solution= s.minimumOperations(root)
+
+   println( solution)
 }
 

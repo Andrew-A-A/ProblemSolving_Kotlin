@@ -1,4 +1,5 @@
 import java.util.*
+import kotlin.collections.ArrayDeque
 import kotlin.math.min
 
 class Solution {
@@ -436,4 +437,35 @@ class Solution {
         }
     return ans
     }
-}
+    fun minimumOperations(root: TreeNode?): Int {
+        val queue = ArrayDeque<TreeNode>()
+        var count=0
+        if (root!=null)
+            queue.addLast(root)
+        else
+            return 0
+
+        while (queue.isNotEmpty()) {
+            // Get the size of the current level
+            val levelSize = queue.size
+            val currentArray=IntArray(levelSize)
+            for (i in 0..<levelSize) {
+                val currentNode = queue.removeFirst()
+               // print("${currentNode.`val`} ")
+                currentArray[i]=currentNode.`val`
+                if (currentNode.left != null) {
+                    queue.addLast(currentNode.left!!)
+                }
+
+                if (currentNode.right != null) {
+                    queue.addLast(currentNode.right!!)
+                }
+            }
+            // Print a newline after processing the current level
+            //println()
+            count+=Utils.minNumOfSwaps(currentArray)
+        }
+        return count
+      }
+    }
+
