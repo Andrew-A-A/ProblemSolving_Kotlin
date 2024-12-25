@@ -1,5 +1,6 @@
 import java.util.*
 import kotlin.collections.ArrayDeque
+import kotlin.collections.ArrayList
 import kotlin.math.max
 import kotlin.math.min
 
@@ -486,6 +487,36 @@ class Solution {
 
 
         return max(r1+r2+1, max(d1,d2))
+    }
+
+    fun largestValues(root: TreeNode?): List<Int> {
+        val maxValuesList=ArrayList<Int>()
+        val queue=ArrayDeque<TreeNode>()
+        if (root!=null) {
+           queue.addLast(root)
+          //  maxValuesList.add(root.`val`)
+        }
+        while (queue.isNotEmpty()){
+            val currentRowSize=queue.size
+            val currentRow=IntArray(currentRowSize)
+            var maxVal=Int.MIN_VALUE
+                for (i in 0  ..<currentRowSize){
+                    val currentNode=queue.removeFirst()
+                    currentRow[i]=currentNode.`val`
+                    maxVal = if (currentNode.`val`>maxVal) currentNode.`val` else maxVal
+                    if (currentNode.left!=null){
+                        queue.addLast(currentNode.left!!)
+                    }
+                    if (currentNode.right!=null){
+                        queue.addLast(currentNode.right!!)
+                    }
+                }
+            maxValuesList.add(maxVal)
+        }
+
+
+
+        return maxValuesList.toList()
     }
 }
 
