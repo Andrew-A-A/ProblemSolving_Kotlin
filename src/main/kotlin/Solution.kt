@@ -1,5 +1,6 @@
 import java.util.*
 import kotlin.collections.ArrayDeque
+import kotlin.math.max
 import kotlin.math.min
 
 class Solution {
@@ -467,5 +468,24 @@ class Solution {
         }
         return count
       }
+    fun minimumDiameterAfterMerge(edges1: Array<IntArray>, edges2: Array<IntArray>): Int {
+        //Calculate diameter of each tree
+       val d1 = Utils.findTreeDiameter(edges1)
+        val d2=Utils.findTreeDiameter(edges2)
+
+        val r1 = if (d1%2==0)
+            d1/2
+        else{
+            d1/2 +1
+        }
+        val r2 = if (d2%2==0)
+            d2/2
+        else{
+            d2/2 +1
+        }
+
+
+        return max(r1+r2+1, max(d1,d2))
     }
+}
 

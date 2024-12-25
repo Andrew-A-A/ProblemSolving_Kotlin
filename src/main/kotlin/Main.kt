@@ -16,7 +16,19 @@ fun main() {
     n2.right=n5
 
     val solution= s.minimumOperations(root)
-
-   println( solution)
+   println( Utils.findTreeDiameter(
+        arrayOf(
+            intArrayOf(4,5),
+            intArrayOf(2,6),
+            intArrayOf(3,2),
+            intArrayOf(4,7),
+            intArrayOf(3,4),
+            intArrayOf(0,3),
+            intArrayOf(1,0),
+            intArrayOf(1,8),
+        )
+    )
+   )
+    println(solution)
 }
 
