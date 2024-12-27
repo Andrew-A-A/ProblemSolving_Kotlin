@@ -15,7 +15,7 @@ fun main() {
 //    n1.right=n4
 //    n2.right=n5
 
-    val solution= s.isRobotBounded("GLGLGGLGL")
+    val solution= s.findMaxAverage(intArrayOf(-1),1)
     println(solution)
 }
 

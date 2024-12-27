@@ -551,6 +551,20 @@ class Solution {
         }
         return (x==0 && y==0) || direction!='N'
     }
+    fun findMaxAverage(nums: IntArray, k: Int): Double {
+        var ans:Double =Double.NEGATIVE_INFINITY
+        for (i in 0.. nums.size-k){
+            var currentAvg:Double=0.0
+            for (j in i ..< k+i){
+                currentAvg+=nums[j]
+            }
+            currentAvg /= k
+            if (currentAvg>ans){
+                ans=currentAvg
+            }
+        }
+        return ans
+    }
 }
 
 
